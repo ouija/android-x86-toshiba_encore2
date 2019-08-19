@@ -1,0 +1,20 @@
+alsa_amixer cset name='DAC MIXL INF1 Switch'  on
+alsa_amixer cset name='DAC MIXR INF1 Switch'  on
+alsa_amixer cset name='Stereo DAC MIXL DAC L1 Switch'  on
+alsa_amixer cset name='Stereo DAC MIXR DAC R1 Switch'  on
+alsa_amixer cset name='name='Stereo DAC MIXL DAC L2 Switch'  on
+alsa_amixer cset name='Stereo DAC MIXR DAC R2 Switch'  on
+alsa_amixer cset name='HPO MIX HPVOL Switch'  on
+alsa_amixer cset name='Headphone Switch'  on
+alsa_amixer cset name='HP Channel Switch' on
+alsa_amixer cset name='Speaker Switch' off
+alsa_amixer cset name='HP L Playback Switch' on
+alsa_amixer cset name='HP R Playback Switch' on
+alsa_amixer cset name='HP Playback Volume' 29
+
+# Disable Speaker
+alsa_amixer cset name='Speaker Switch' offalsa_amixer cset name='
+alsa_amixer cset name='Speaker Channel Switch' offalsa_amixer cset name='
+alsa_amixer cset name='Speaker L Playback Switch' offalsa_amixer cset name='
+alsa_amixer cset name='Speaker R Playback Switch' offalsa_amixer cset name='
+alsa_amixer cset name='Speaker Playback Volume' 0alsa_amixer cset name='

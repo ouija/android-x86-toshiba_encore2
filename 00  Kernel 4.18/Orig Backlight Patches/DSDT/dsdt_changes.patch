@@ -1,0 +1,117 @@
+--- orig/dsdt.dsl	2016-05-07 05:35:40.000000000 -0400
++++ mod/dsdt.dsl	2016-05-16 10:11:35.379181840 -0400
+@@ -5,7 +5,7 @@
+  * 
+  * Disassembling to symbolic ASL+ operators
+  *
+- * Disassembly of dsdt.dat, Sat May  7 01:35:41 2016
++ * Disassembly of dsdt.dat, Sun May  1 16:38:14 2016
+  *
+  * Original Table Header:
+  *     Signature        "DSDT"
+@@ -433,9 +433,10 @@
+                 IO (Decode16,
+                     0x0070,             // Range Minimum
+                     0x0070,             // Range Maximum
+-                    0x01,               // Alignment
+-                    0x08,               // Length
++                    0x00,               // Alignment
++                    0x02,               // Length
+                     )
++				IRQNoFlags(){10}
+             })
+         }
+ 
+@@ -9599,31 +9600,7 @@
+                     Return (Zero)
+                 }
+ 
+-                If ((OSSL & 0x80))
+-                {
+-                    Return (0x0F)
+-                }
+-
+-                Return (Zero)
+-            }
+-
+-            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+-            {
+-                PSAT |= 0x03
+-                Local0 = PSAT /* \_SB_.PWM1.PSAT */
+-            }
+-
+-            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+-            {
+-                PSAT &= 0xFFFFFFFC
+-                Local0 = PSAT /* \_SB_.PWM1.PSAT */
+-            }
+-
+-            OperationRegion (KEYS, SystemMemory, P11A, 0x0100)
+-            Field (KEYS, DWordAcc, NoLock, WriteAsZeros)
+-            {
+-                Offset (0x84), 
+-                PSAT,   32
++                Return (0x0F)
+             }
+         }
+ 
+@@ -9656,32 +9633,7 @@
+                 {
+                     Return (Zero)
+                 }
+-
+-                If ((OSSL & 0x80))
+-                {
+-                    Return (0x0F)
+-                }
+-
+-                Return (Zero)
+-            }
+-
+-            Method (_PS3, 0, NotSerialized)  // _PS3: Power State 3
+-            {
+-                PSAT |= 0x03
+-                Local0 = PSAT /* \_SB_.PWM2.PSAT */
+-            }
+-
+-            Method (_PS0, 0, NotSerialized)  // _PS0: Power State 0
+-            {
+-                PSAT &= 0xFFFFFFFC
+-                Local0 = PSAT /* \_SB_.PWM2.PSAT */
+-            }
+-
+-            OperationRegion (KEYS, SystemMemory, P21A, 0x0100)
+-            Field (KEYS, DWordAcc, NoLock, WriteAsZeros)
+-            {
+-                Offset (0x84), 
+-                PSAT,   32
++                Return (0x0F)
+             }
+         }
+ 
+@@ -13731,10 +13732,10 @@
+                 Name (ABUF, ResourceTemplate ()
+                 {
+                     GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullDefault, 0x0000,
+-                        "\\_SB.I2C5.PMI1", 0x00, ResourceConsumer, ,
++                        "\\_SB.GPO2", 0x00, ResourceConsumer, ,
+                         )
+                         {   // Pin list
+-                            0x0016
++                            0x0010
+                         }
+                     GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullDefault, 0x0000,
+                         "\\_SB.GPO2", 0x00, ResourceConsumer, ,
+@@ -13764,10 +13765,10 @@
+                 Name (BBUF, ResourceTemplate ()
+                 {
+                     GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullDefault, 0x0000,
+-                        "\\_SB.I2C5.PMI2", 0x00, ResourceConsumer, ,
++                        "\\_SB.GPO2", 0x00, ResourceConsumer, ,
+                         )
+                         {   // Pin list
+-                            0x0016
++                            0x0010
+                         }
+                     GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullDefault, 0x0000,
+                         "\\_SB.GPO2", 0x00, ResourceConsumer, ,

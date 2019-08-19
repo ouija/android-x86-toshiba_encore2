@@ -1,0 +1,26 @@
+diff --git a/drivers/pwm/pwm-lpss-platform.c b/drivers/pwm/pwm-lpss-platform.c
+index 54433fc..910bc14 100644
+--- a/drivers/pwm/pwm-lpss-platform.c
++++ b/drivers/pwm/pwm-lpss-platform.c
+@@ -18,6 +18,11 @@
+ 
+ #include "pwm-lpss.h"
+ 
++/* PWM consumed by the Intel GFX */
++static struct pwm_lookup lpss_pwm_lookup[] = {
++	PWM_LOOKUP("80860F09:00", 0, "0000:00:02.0", "pwm_lpss", 0, PWM_POLARITY_NORMAL),
++};
++
+ static int pwm_lpss_probe_platform(struct platform_device *pdev)
+ {
+ 	const struct pwm_lpss_boardinfo *info;
+@@ -38,6 +43,9 @@ static int pwm_lpss_probe_platform(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, lpwm);
+ 
++	/* Register intel-gfx device as allowed consumer */
++	pwm_add_table(lpss_pwm_lookup, ARRAY_SIZE(lpss_pwm_lookup));
++
+ 	pm_runtime_set_active(&pdev->dev);
+ 	pm_runtime_enable(&pdev->dev);
+ 

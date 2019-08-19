@@ -1,0 +1,27 @@
+From f33c6987fcb2021f97bc6953cd7d4129ef98388d Mon Sep 17 00:00:00 2001
+From: Tristian Celestin <tristian.celestin@outlook.com>
+Date: Tue, 10 Apr 2018 00:52:53 -0400
+Subject: [PATCH] When running Androidx86, if the key isn't reported back
+ during the button-up event, further input from the HID device will be ignored
+ until the module is unloaded and reloaded again.
+
+---
+ drivers/platform/x86/intel-hid.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/platform/x86/intel-hid.c b/drivers/platform/x86/intel-hid.c
+index 5e3df19..170ad950 100644
+--- a/drivers/platform/x86/intel-hid.c
++++ b/drivers/platform/x86/intel-hid.c
+@@ -260,6 +260,8 @@ static void notify_handler(acpi_handle handle, u32 event, void *context)
+ 		}
+ 
+ 		if (event == 0xcf)
++			input_report_key(priv->input_dev, KEY_POWER, 0);
++			input_sync(priv->input_dev);
+ 			return;
+ 	}
+ 
+-- 
+1.8.3.1
+
