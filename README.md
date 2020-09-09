@@ -9,7 +9,14 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 
 ## Instructions
 
-* To be completed soon..
+* Patch 4.19 kernel with [all patches](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/00%20%20Kernel%204.19).
+* Edit or replace [kernel config file](https://github.com/ouija/android-x86-toshiba_encore2/blob/master/00%20%20Kernel%204.19/android-x86_64_defconfig) (/kernel/arch/x86/configs/android-x86_64_defconfig) and update the following to enable LPSS backlight control:
+```
+CONFIG_PWM_LPSS=y
+CONFIG_PWM_LPSS_PCI=y
+CONFIG_PWM_LPSS_PLATFORM=y
+```
+* To further fix issue with wireless disconnects, enable Android Developer options, then disable "Mobile data always active" option under Networking
 * To fully resolve the c-stage bug, it is advised to at "intel_idle.max_state=1 reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' i915.enable_execlists=0" kernel commands to the grub loader
 * To fix read-only issue with SD Card, add "sdhci.debug_quirks=0x10000" kernel command to grub loader
 
