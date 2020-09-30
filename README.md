@@ -22,5 +22,5 @@ CONFIG_PWM_LPSS_PLATFORM=y
 
 See [this topic](https://groups.google.com/forum/#!topic/android-x86/qyCvK176UXA) on the [Android-x86 Google Group](https://groups.google.com/forum/#!forum/android-x86) for more information and for further assistance if necessary
 
-Pre-built image [here](https://mega.nz/file/THYl0CKQ#a6lGoeHrvCd2qyI9kXdRPQSqZ8gT9DexZ-pSaqHen94)
+Pre-built image [here](https://mega.nz/file/THYl0CKQ#a6lGoeHrvCd2qyI9kXdRPQSqZ8gT9DexZ-pSaqHen94)<br>
 Create USB Installer based off [Andoid-x86 8.1r1](https://osdn.net/projects/android-x86/releases/69704) and replace kernel and system.sfs with zip contents.
