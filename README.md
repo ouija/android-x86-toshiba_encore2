@@ -9,5 +9,5 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 
 ## Select a build for more info:
 
-## [Android-x86-8.1r2](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/Android-x86-9.0r2) -- under development, more info soon
+## [Android-x86-9.0r2](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/Android-x86-9.0r2) -- under development, more info soon
 ## [Android-x86-8.1r2](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/Android-x86-8.1r2)
