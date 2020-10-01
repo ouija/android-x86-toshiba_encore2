@@ -1,0 +1,49 @@
+From 390cf608e5543468f3d413887affe04693195d44 Mon Sep 17 00:00:00 2001
+From: Matt Moeller <matthew.moeller@kinze.com>
+Date: Tue, 19 May 2020 13:31:33 -0500
+Subject: [PATCH] ISurfaceComposer: Workaround for screenshots on intel
+ graphics
+
+Prevent the GraphicBuffer destructor until after the screencap client
+has had a chance to consume it.
+---
+ libs/gui/ISurfaceComposer.cpp | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/frameworks/native/libs/gui/ISurfaceComposer.cpp b/libs/gui/ISurfaceComposer.cpp
+index 81c7f9c57..6df5a4e66 100644
+--- a/frameworks/native/libs/gui/ISurfaceComposer.cpp
++++ b/frameworks/native/libs/gui/ISurfaceComposer.cpp
+@@ -20,6 +20,8 @@
+ #include <stdint.h>
+ #include <sys/types.h>
+ 
++#include <thread>
++
+ #include <binder/Parcel.h>
+ #include <binder/IPCThreadState.h>
+ #include <binder/IServiceManager.h>
+@@ -631,6 +633,20 @@ status_t BnSurfaceComposer::onTransact(
+                 reply->write(*outBuffer);
+                 reply->writeBool(capturedSecureLayers);
+             }
++
++            // XXX
++            // When outBuffer goes out of scope, the destructor gets called and on some
++            // graphics platforms (intel i915) this will actually free the underlying buffer
++            // containing the screen capture. The guy on the other end of this binder transaction
++            // will try to open the buffer that has been freed and fail.
++            //
++            // The super-hacky workaround here is to delay the destructor call in a thread so
++            // the binder client can obtain the buffer in question. When the thread timeout expires
++            // the destructor will get called and clean up the buffer so there is no memory leak.
++            std::thread t([outBuffer]() {
++                std::this_thread::sleep_for(std::chrono::seconds(1));
++            });
++            t.detach();
+             return NO_ERROR;
+         }
+         case CAPTURE_LAYERS: {
+-- 
+2.25.1
+
