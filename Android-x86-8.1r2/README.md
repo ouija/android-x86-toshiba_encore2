@@ -9,8 +9,8 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 
 ## Instructions
 
-* Patch 4.19 kernel with [all patches](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/00%20%20Kernel%204.19).
-* Edit or replace [kernel config file](https://github.com/ouija/android-x86-toshiba_encore2/blob/master/00%20%20Kernel%204.19/android-x86_64_defconfig) (/kernel/arch/x86/configs/android-x86_64_defconfig) and update the following to enable LPSS backlight control:
+* Patch 4.19 kernel with [all patches](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/Android-x86-8.1r2/00%20%20Kernel%204.19).
+* Edit or replace [kernel config file](https://github.com/ouija/android-x86-toshiba_encore2/blob/master/Android-x86-8.1r2/00%20%20Kernel%204.19/android-x86_64_defconfig) (/kernel/arch/x86/configs/android-x86_64_defconfig) and update the following to enable LPSS backlight control:
 ```
 CONFIG_PWM_LPSS=y
 CONFIG_PWM_LPSS_PCI=y
