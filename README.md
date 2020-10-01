@@ -1,6 +1,6 @@
 # [Android-x86](https://www.android-x86.org) on the [Toshiba Encore 2 WT8-B](https://www.toshiba.ca/productdetailpage.aspx?id=2147499291)
 
-![icon](product.jpg)
+![icon](image.jpg)
 
 This repository contains kernel patches, scripts and more that I've utilized to get Android-x86 running on a Toshiba Encore 2 [WT8-B] tablet.
 
