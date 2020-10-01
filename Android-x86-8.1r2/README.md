@@ -17,7 +17,8 @@ CONFIG_PWM_LPSS_PCI=y
 CONFIG_PWM_LPSS_PLATFORM=y
 ```
 * To further fix issue with wireless disconnects, enable Android Developer options, then disable "Mobile data always active" option under Networking
-* To fully resolve the c-stage bug, it is advised to at "intel_idle.max_state=1 reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' i915.enable_execlists=0" kernel commands to the grub loader
+* To fully resolve the c-stage bug, it is advised to add "intel_idle.max_state=1 reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' i915.enable_execlists=0" kernel commands to the grub loader
+* If still having issues resuming from suspend (cstate bug), you can instead try using "intel_idle.max_cstate=1" kernel command instead. (note however the system will not fully sleep or dipslay may not actually turn off)
 * To fix read-only issue with SD Card, add "sdhci.debug_quirks=0x10000" kernel command to grub loader
 
 See [this topic](https://groups.google.com/forum/#!topic/android-x86/qyCvK176UXA) on the [Android-x86 Google Group](https://groups.google.com/forum/#!forum/android-x86) for more information and for further assistance if necessary
