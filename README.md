@@ -7,8 +7,8 @@ Based off [Kernel 4.19](https://osdn.net/projects/android-x86/scm/git/kernel/tre
 
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
 
-## Instructions
+## Select a build for more info:
 
-Android-x86-9.0r2 -- under development, more info soon
+[Android-x86-8.1r2](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/Android-x86-9.0r2)-- under development, more info soon
 <br>
 [Android-x86-8.1r2](https://github.com/ouija/android-x86-toshiba_encore2/tree/master/Android-x86-8.1r2)
