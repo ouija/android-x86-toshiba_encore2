@@ -50,7 +50,7 @@ CONFIG_PWM_LPSS_PLATFORM=y
 * Sleep issue seem to occur more frequently when OTG -> USB storage is connected?
 * If still having issues resuming from suspend/sleep, you can try using `intel_idle.max_state=1`, `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`)
 * Wifi [RTL8723BS] is prone to disconnects; If you enable Android Developer options, then disable "Mobile data always active" option under Networking, this might help, but YMMV.
-* For Netflix support, use version [4.16 build 15172])(https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk) _(do not update after installing)_
+* For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk) _(do not update after installing)_
 
 
 ## Notes
