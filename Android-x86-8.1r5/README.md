@@ -8,7 +8,7 @@ Based off [Kernel 4.19.50](https://osdn.net/projects/android-x86/scm/git/kernel/
 
 ## Installation Instructions
 
-* [Download pre-built image here](https://mega.nz/file/2HpAXZyJ#ckgEAs4O2mJXZ9VQRornvem-yUvz_dIdvGW9RYBrDpc).
+* [Download pre-built image here](https://mega.nz/file/GK5SVCgQ#3-VM8UYEx30xP0HqV8H7aK5A9NlYZZdYR5VrMUR4HlQ).
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios and select USB drive to boot from.
 * Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android to the internal storage (`mmcblk1`).
