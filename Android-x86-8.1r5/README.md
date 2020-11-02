@@ -36,9 +36,15 @@ CONFIG_PWM_LPSS_PLATFORM=y
 * Enabled `navtivebridge` support by default and included `houdini` in the pre-built image, and fixed url link issue with `/system/bin/enable_nativebridge` script.
 * Updated `build.prop` with optimizations for better GPU and system performance.
 * Unsquashed system.img in pre-build image to enable read/write capabilities.
-* Removed the dialer, calibration, music, file manager, taskbar and developer tools apps from pre-built image.
+* Removed taskbar, calibration and developer tools apps from pre-built image.
 * Added ES File Exploer to pre-built image.
 * Added `nano` to pre-built image but note you need to set the TERMINFO environment variable by running `export TERM=linux;export TERMINFO=/etc/terminfo` in the terminel before use.
+
+
+## Recent Bugfixes and Improvments
+
+* 10-31-2020: Fixed headphone switching on boot _(if headphones connected at startup, audio will automatically output to them)_ 
+* 11-01-2020: Improved scrolling of device
 
 
 ## Known Bugs and Issues
