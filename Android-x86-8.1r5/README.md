@@ -22,7 +22,7 @@ Based off [Kernel 4.19.50](https://osdn.net/projects/android-x86/scm/git/kernel/
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
 
 * Patched 4.19.50 kernel with [all patches](./00%20%20Kernel%204.19).
-* Edited [kernel config file](./00%20%20Kernel%204.19/android-x86_64_defconfig) [`./kernel/arch/x86/configs/android-x86_64_defconfig`] and updated the following to enable LPSS backlight control:
+* Edited [kernel config file](./00%20%20Kernel%204.19/android-x86_64_defconfig) (`./kernel/arch/x86/configs/android-x86_64_defconfig`) to enable LPSS backlight control:
 ```
 CONFIG_PWM_LPSS=y
 CONFIG_PWM_LPSS_PCI=y
