@@ -1,4 +1,4 @@
-# [Android-x86](https://www.android-x86.org) on the [Toshiba Encore 2 WT8-B/WT10-A](https://www.toshiba.ca/productdetailpage.aspx?id=2147499291)
+# [Android-x86](https://www.android-x86.org) on the Toshiba Encore 2 [[WT8-B](https://www.toshiba.ca/productdetailpage.aspx?id=2147499291)/[WT10-A](https://support.dynabook.com/support/staticContentDetail?contentId=4012954)]
 
 ![icon](image.jpg)
 
