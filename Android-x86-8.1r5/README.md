@@ -72,5 +72,5 @@ CONFIG_PWM_LPSS_PLATFORM=y
 
 * The kernel used in this image was originally built from the `8.1r2` source.
 * Special thanks to [@cwhuang](https://github.com/cwhuang) and [@youling257](https://github.com/youling257) for thier support.
-* Honerable mention to Mr. James P. Kelly, who gave me this tablet he obtained on a five finger discount after a delayed flight. &nbsp _#RIP_
+* Honerable mention to Mr. James P. Kelly, who gave me this tablet he obtained on a five finger discount after a delayed flight. &nbsp; _#RIP_
 * See [this topic](https://groups.google.com/forum/#!topic/android-x86/qyCvK176UXA) on the [Android-x86 Google Group](https://groups.google.com/forum/#!forum/android-x86) for more information and further assistance if necessary.
