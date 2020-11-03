@@ -8,7 +8,7 @@ Based off [Kernel 4.19.50](https://osdn.net/projects/android-x86/scm/git/kernel/
 
 ## Installation Instructions
 
-* [Download pre-built image here](https://mega.nz/file/HbYm1RzK#-sUJgg1lecHGsf0fIx1NacyrgiFS6-SYw1w1zZxmsOw) &nbsp; | &nbsp; [MIRROR](https://www.dropbox.com/s/05nt6anen4brypf/Android-x86-8.1r5-WT8-B.iso?dl=0)
+* [Download pre-built image here](https://mega.nz/file/HbYm1RzK#-sUJgg1lecHGsf0fIx1NacyrgiFS6-SYw1w1zZxmsOw) &nbsp; | &nbsp; [Mirror](https://www.dropbox.com/s/05nt6anen4brypf/Android-x86-8.1r5-WT8-B.iso?dl=0)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios and select USB drive to boot from.
 * Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android to the internal storage (`mmcblk1`).
