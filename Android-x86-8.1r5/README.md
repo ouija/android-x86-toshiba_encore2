@@ -46,7 +46,7 @@ CONFIG_PWM_LPSS_PLATFORM=y
 * 11-03-2020: 
 	* **Added support for Toshiba WT10-A**
 	* Fixed 'audio pop' issue with touch events when using headphones
-	* Fixed levels for external headset microphone.
+	* Fixed levels for external headset microphone
 	* Improved `nano` terminal support
 * 11-01-2020:
 	* Improved scrolling of device
