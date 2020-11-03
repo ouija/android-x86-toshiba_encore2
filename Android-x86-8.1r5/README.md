@@ -31,7 +31,7 @@ CONFIG_PWM_LPSS_PLATFORM=y
 * Added `AUTO_LOAD=old` boot arg to GRUB (android.cfg) to resolve issues with kernel modules failing to init at boot _(resolves issues with touchscreen and power button)_.
 * Added `acpi=force reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' acpi_osi='Linux'` boot args to GRUB (`android.cfg`) to improve sleep resume and restart issues.
 * Added `sdhci.debug_quirks=0x10000` boot arg to GRUB (`android.cfg`) to resolve SD card read-only issue.
-* Updated `/system/etc/init.sh` startup script and added `WT8-B` to `init_hal_sensors` function to properly initalize accelerometers _(screen rotation and gyroscope)_
+* Updated `/system/etc/init.sh` startup script and added `WT8-B` to `init_hal_sensors` function to properly initalize accelerometers _(screen rotation and gyroscope)_.
 * Updated `/system/etc/init.sh` startup script and added `WT8-B` to `do_bootcomplete` function to properly intialize soundcard and enable headphone switching _(input jack detection)_.
 * Enabled `navtivebridge` support by default and included `houdini` in the pre-built image, and fixed url link issue with `/system/bin/enable_nativebridge` script.
 * Updated `build.prop` with optimizations for better GPU and system performance.
