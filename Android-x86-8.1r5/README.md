@@ -56,8 +56,8 @@ CONFIG_PWM_LPSS_PLATFORM=y
 
 ## Known Bugs and Issues
 
-* Internal microphone not working _(bug/kernel issue with bytcrrt5640)_.
 * Cameras not working _(no kernel support)_.
+* Internal microphone not working _(bug/kernel issue with bytcrrt5640)_.
 * Bluetooth is partially working but not reliably discovering or connecting to all devices.
 * Formatting SD card with Android isn't working _(cannot be used for internal app storage - format with PC for use as portable storage)_.
 * There are still some unresolved issues regarding wake from sleep, this may due to a known `CSTATE BUG` with Intel CherryTrail devices.
