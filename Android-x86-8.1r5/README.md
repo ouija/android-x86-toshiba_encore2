@@ -35,7 +35,7 @@ CONFIG_PWM_LPSS_PLATFORM=y
 * Updated `/system/etc/init.sh` startup script and added `WT8-B` to `do_bootcomplete` function to properly intialize soundcard and enable headphone switching _(input jack detection)_
 * Enabled `navtivebridge` support by default and included `houdini` in the pre-built image, and fixed url link issue with `/system/bin/enable_nativebridge` script.
 * Updated `build.prop` with optimizations for better GPU and system performance.
-* Unsquashed `system.img` in pre-build image to enable read/write capabilities.
+* Unsquashed `system.img` in pre-built image to enable read/write capabilities for system partition.
 * Removed `taskbar`, `calibration` and `developer tools` apps from pre-built image.
 * Added `ES File Exploer` to pre-built image.
 * Added `nano` to pre-built image.
@@ -44,14 +44,14 @@ CONFIG_PWM_LPSS_PLATFORM=y
 ## Recent Bugfixes and Improvments
 
 * 11-03-2020: 
-	* *Added support for Toshiba WT10-A*
+	* **Added support for Toshiba WT10-A**
 	* Fixed 'audio pop' issue with touch events when using headphones.
 	* Fixed levels for HeadsetMic.
 	* Fixed nano and improved terminal support _(TERMINFO now set in shell init)_
 * 11-01-2020:
 	* Improved scrolling of device
 * 10-31-2020:
-	* Fixed headphone switching on boot _(if headphones connected at startup, audio will automatically output to them)_ 
+	* Fixed headphone switching on boot _(audio will automatically output to headphones if connected on startup)_ 
 
 
 ## Known Bugs and Issues
