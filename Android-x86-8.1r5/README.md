@@ -64,7 +64,7 @@ CONFIG_PWM_LPSS_PLATFORM=y
 * Sleep issue seem to occur more frequently when OTG -> USB storage is connected.
 * Enabling hibernation mode in kernel config _[might help](https://groups.google.com/g/android-x86/c/pMiCxvtZa5A/m/4A7J04V0EwAJ)_ r8723bs disconnect issues _(requires building from source)_
 * If still having issues resuming from suspend/sleep, you can try using `intel_idle.max_state=1`, `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`).
-* Wifi [r8723bs] is prone to disconnects _(enabling developer options and disabling "Mobile data always active" option under networking might help)_.
+* Wifi [r8723bs] is prone to disconnects _(enabling developer options and disabling "Mobile data always active" option might help)_.
 * For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk) _(do not update after installing)_
 
 
