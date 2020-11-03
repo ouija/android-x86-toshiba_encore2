@@ -1,6 +1,6 @@
-# [Android-x86](https://www.android-x86.org) on the [Toshiba Encore 2 WT8-B](https://www.toshiba.ca/productdetailpage.aspx?id=2147499291)
+# [Android-x86](https://www.android-x86.org) on the [Toshiba Encore 2 WT8-B/WT10-A](https://www.toshiba.ca/productdetailpage.aspx?id=2147499291)
 
-Android-x86_64 [v8.1-r5] running on a Toshiba Encore 2 [WT8-B] tablet.
+Android-x86_64 [v8.1-r5] running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 
 Based off [Kernel 4.19.50](https://osdn.net/projects/android-x86/scm/git/kernel/tree/kernel-4.19/)
 
@@ -8,7 +8,7 @@ Based off [Kernel 4.19.50](https://osdn.net/projects/android-x86/scm/git/kernel/
 
 ## Installation Instructions
 
-* [Download pre-built image here](https://mega.nz/file/GK5SVCgQ#3-VM8UYEx30xP0HqV8H7aK5A9NlYZZdYR5VrMUR4HlQ).
+* [Download pre-built image here](https://mega.nz/file/HbYm1RzK#-sUJgg1lecHGsf0fIx1NacyrgiFS6-SYw1w1zZxmsOw).
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios and select USB drive to boot from.
 * Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android to the internal storage (`mmcblk1`).
@@ -35,28 +35,36 @@ CONFIG_PWM_LPSS_PLATFORM=y
 * Updated `/system/etc/init.sh` startup script and added `WT8-B` to `do_bootcomplete` function to properly intialize soundcard and enable headphone switching _(input jack detection)_
 * Enabled `navtivebridge` support by default and included `houdini` in the pre-built image, and fixed url link issue with `/system/bin/enable_nativebridge` script.
 * Updated `build.prop` with optimizations for better GPU and system performance.
-* Unsquashed system.img in pre-build image to enable read/write capabilities.
-* Removed taskbar, calibration and developer tools apps from pre-built image.
-* Added ES File Exploer to pre-built image.
-* Added `nano` to pre-built image but note you need to set the TERMINFO environment variable by running `export TERM=linux;export TERMINFO=/etc/terminfo` in the terminel before use.
+* Unsquashed `system.img` in pre-build image to enable read/write capabilities.
+* Removed `taskbar`, `calibration` and `developer tools` apps from pre-built image.
+* Added `ES File Exploer` to pre-built image.
+* Added `nano` to pre-built image.
 
 
 ## Recent Bugfixes and Improvments
 
-* 10-31-2020: Fixed headphone switching on boot _(if headphones connected at startup, audio will automatically output to them)_ 
-* 11-01-2020: Improved scrolling of device
+* 11-03-2020: 
+	* *Added support for Toshiba WT10-A*
+	* Fixed 'audio pop' issue with touch events when using headphones.
+	* Fixed levels for HeadsetMic.
+	* Fixed nano and improved terminal support _(TERMINFO now set in shell init)_
+* 11-01-2020:
+	* Improved scrolling of device
+* 10-31-2020:
+	* Fixed headphone switching on boot _(if headphones connected at startup, audio will automatically output to them)_ 
 
 
 ## Known Bugs and Issues
 
+* Internal Microphone not working (bug/kernel issue with bytcrrt5640)
 * Cameras not working (no kernel support).
 * Bluetooth is partially working but not reliably discovering or connecting to all devices.
-* Bluetooth may sometimes crash as sleep/resume.
 * Formatting SD card with Android isn't working _(cannot be used for internal app storage - format with PC for use as portable storage)_.
 * There are still some unresolved issues regarding wake from sleep, this may due to a known `CSTATE BUG` with Intel CherryTrail devices.
-* Sleep issue seem to occur more frequently when OTG -> USB storage is connected?
+* Sleep issue seem to occur more frequently when OTG -> USB storage is connected.
+* Enabling hibernation mode in kernel config _[might help](https://groups.google.com/g/android-x86/c/pMiCxvtZa5A/m/4A7J04V0EwAJ) r8723bs disconnect issues _(requires building from source)_
 * If still having issues resuming from suspend/sleep, you can try using `intel_idle.max_state=1`, `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`).
-* Wifi [RTL8723BS] is prone to disconnects; If you enable Android Developer options, then disable "Mobile data always active" option under Networking, this might help, but YMMV.
+* Wifi [r8723bs] is prone to disconnects; If you enable Android Developer options, then disable "Mobile data always active" option under Networking, this might help, but YMMV.
 * For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk) _(do not update after installing)_
 
 
