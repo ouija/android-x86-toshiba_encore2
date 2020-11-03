@@ -1,4 +1,4 @@
-# [Android-x86](https://www.android-x86.org) on the Toshiba Encore 2 [[WT8-B](https://www.toshiba.ca/productdetailpage.aspx?id=2147499291)/WT10-A]
+# [Android-x86](https://www.android-x86.org) on the Toshiba Encore 2 [[WT8-B](https://www.toshiba.ca/productdetailpage.aspx?id=2147499291)/[WT10-A](https://support.dynabook.com/support/staticContentDetail?contentId=4012954)]
 
 Android-x86_64 [v8.1-r5] running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 
@@ -8,7 +8,7 @@ Based off [Kernel 4.19.50](https://osdn.net/projects/android-x86/scm/git/kernel/
 
 ## Installation Instructions
 
-* [Download pre-built image here](https://mega.nz/file/HbYm1RzK#-sUJgg1lecHGsf0fIx1NacyrgiFS6-SYw1w1zZxmsOw)  |  [Mirror](https://www.dropbox.com/s/05nt6anen4brypf/Android-x86-8.1r5-WT8-B.iso?dl=0)
+* [Download pre-built image here](https://mega.nz/file/HbYm1RzK#-sUJgg1lecHGsf0fIx1NacyrgiFS6-SYw1w1zZxmsOw) &nbsp; | &nbsp; [MIRROR](https://www.dropbox.com/s/05nt6anen4brypf/Android-x86-8.1r5-WT8-B.iso?dl=0)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios and select USB drive to boot from.
 * Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android to the internal storage (`mmcblk1`).
