@@ -2,8 +2,6 @@
 
 Android-x86_64 [v8.1r5] running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 
-Based off [Kernel 4.19.50](https://osdn.net/projects/android-x86/scm/git/kernel/tree/kernel-4.19/)
-
 ----------------------------------------------------------------------------------
 
 ## Installation Instructions
