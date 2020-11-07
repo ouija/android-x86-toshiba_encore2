@@ -6,7 +6,8 @@ Android-x86_64 [v8.1r5] running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 
 ## Installation Instructions
 
-* [Download pre-built image here](https://mega.nz/file/6DImjTaR#1Ukl5ZgSKl6ogwouiH7lrTBPG8WGHRi0D9l7vFka3FE) &nbsp; | &nbsp; [Mirror](https://www.dropbox.com/s/jbff2ocuu0xmb1w/Android-x86_8.1r5_WT8-B_W10T-A.iso?dl=0)
+* **UPDATE:** Latest build with hibernation not working reliably; Use 2020-11-03 build for now until
+* [Download pre-built image here](https://mega.nz/file/6DImjTaR#1Ukl5ZgSKl6ogwouiH7lrTBPG8WGHRi0D9l7vFka3FE) &nbsp; | &nbsp; [View All Builds](https://www.androidfilehost.com/?w=files&flid=319636)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios and select USB drive to boot from.
 * Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android-x86 to the internal storage (`mmcblk1`).
@@ -54,7 +55,7 @@ CONFIG_HIBERNATION=y
 	* Updated auto-installer script to create swap parition needed for hibernation.
 	* Resquashed system.img -> system.sfs and extracting via auto-installer.
 	* Updated GRUB loader with prettier theme.
-* 11-03-2020: 
+* [11-03-2020](https://androidfilehost.com/?fid=10763459528675579498): 
 	* **Added support for Toshiba WT10-A**
 	* Fixed 'audio pop' issue with touch events when using headphones
 	* Fixed levels for external headset microphone
