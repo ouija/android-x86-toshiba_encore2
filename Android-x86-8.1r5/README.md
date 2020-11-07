@@ -13,7 +13,7 @@ Android-x86_64 [v8.1r5] running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 * If installing, choose the internal storage device (`mmcblk1`) and click `Yes` and allow for installation to finish and then select `reboot`.
 * **Note that using the `Auto Install` method is recommended to properly enable hibernation and create the required swap patition!**
 * Note you should login to a Google account and update all pre-installed applications to ensure proper functionality after fresh install.
-* **Enjoy your WT8-B running Android!**
+* Enjoy your WT8-B/WT10-A running Android-x86!
 
 
 ## Build Instructions
