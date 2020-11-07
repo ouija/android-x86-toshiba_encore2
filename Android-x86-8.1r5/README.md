@@ -9,8 +9,9 @@ Android-x86_64 [v8.1r5] running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 * [Download pre-built image here](https://mega.nz/file/6DImjTaR#1Ukl5ZgSKl6ogwouiH7lrTBPG8WGHRi0D9l7vFka3FE) &nbsp; | &nbsp; [Mirror](https://www.dropbox.com/s/jbff2ocuu0xmb1w/Android-x86_8.1r5_WT8-B_W10T-A.iso?dl=0)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios and select USB drive to boot from.
-* Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android to the internal storage (`mmcblk1`).
-* If installing, choose the internal storage device (`mmcblk1`) and click `OK` and allow for installation to finish and then select `reboot`.
+* Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android-x86 to the internal storage (`mmcblk1`).
+* If installing, choose the internal storage device (`mmcblk1`) and click `Yes` and allow for installation to finish and then select `reboot`.
+* **Note that using the `Auto Install` method is recommended to properly enable hibernation and create the required swap patition!**
 * Note you should login to a Google account and update all pre-installed applications to ensure proper functionality after fresh install.
 * **Enjoy your WT8-B running Android!**
 
@@ -74,7 +75,6 @@ CONFIG_HIBERNATION=y
 * Sleep issue seem to occur more frequently when OTG -> USB storage is connected.
 * If still having issues resuming from suspend/sleep, you can try using `intel_idle.max_state=1`, `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`).
 * Using `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script may also resolve sleep crash.
-* **Note that using the `AUTO INSTALL` method is recommended to properly enable hibernation and create the required swap patition!**
 * For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk) _(do not update after installing)_
 
 
