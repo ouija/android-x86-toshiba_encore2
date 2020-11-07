@@ -48,7 +48,7 @@ CONFIG_HIBERNATION=y
 
 * 11-06-2020:
 	* Recompiled latest r5 kernel (4.19.122) from source and applied minmal patches.
-	* Improved WiFi support and random disconnects via updated `rtl8723bs` driver.
+	* Improved WiFi support and random disconnects via alternate `rtl8723bs` driver.
 	* Enabled hiberation mode _(should hopefully improve power conservation when sleeping)_
 	* Issues w/resuming from deep sleep _might_ be resolved! _(more testing required)_
 	* Updated auto-installer script to create swap parition needed for hibernation.
