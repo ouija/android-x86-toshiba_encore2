@@ -1,0 +1,20 @@
+alsa_amixer cset name='Headset Mic Switch' on
+
+# default for IN2 Boost seems to saturate
+alsa_amixer cset name='IN2 Boost' 1
+
+alsa_amixer cset name='RECMIXL BST2 Switch' on
+alsa_amixer cset name='RECMIXR BST2 Switch' on
+
+alsa_amixer cset name='Stereo ADC1 Mux' ADC
+alsa_amixer cset name='Stereo ADC MIXL ADC1 Switch' on
+alsa_amixer cset name='Stereo ADC MIXR ADC1 Switch' on
+
+# Disable other mic
+alsa_amixer cset name='Stereo ADC MIXL ADC2 Switch' off
+alsa_amixer cset name='Stereo ADC MIXR ADC2 Switch' off
+alsa_amixer cset name='Mono ADC MIXL ADC1 Switch' off
+alsa_amixer cset name='Mono ADC MIXR ADC1 Switch' off
+alsa_amixer cset name='Mono ADC Capture Switch' off
+alsa_amixer cset name='Internal Mic Switch' off
+alsa_amixer cset name='Mono ADC Capture Switch' off
