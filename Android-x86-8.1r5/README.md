@@ -46,10 +46,9 @@ CONFIG_HIBERNATION=y
 
 * [11-13-2020](https://androidfilehost.com/?fid=10763459528675583620):
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
-		* Added `/etc/scripts/sleep.sh` script to trigger suspend-to-ram after 1min of sleeping w/o network activity.
-		* Note: Device/BIOS doesn't support S3 *(mem_sleep->deep)* and [resume from hibernation](https://www.kernel.org/doc/Documentation/power/interface.txt), but does support suspend-to-ram/s2idle.
+		* Added `/etc/scripts/sleep.sh` script to trigger suspend-to-ram (s2idle) after 1min of sleeping w/o network activity.
 	* Improved boot time by removing `AUTOLOAD=old` boot arg and using [newer autoloading](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) method
-		* Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes fail to autoload properly.
+		* Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes failed to autoload properly.
 	* Re-applied some kernel patches for improved device support:
 		* Applied `drm-i915-Disable-preemption-and-sleeping-while-using-the-punit-sideband` patch [(more info)](https://www.phoronix.com/forums/forum/software/mobile-linux/1096936-intel-baytrail-cherrytrail-systems-can-now-correctly-hibernate-again-under-linux#post1096999)
 		* Applied `1-2-extcon-intel-cht-wc-Make-charger-detection-co-existed-with-OTG-host-mode` and `2-2-extcon-intel-cht-wc-Enable-external-charger` [(more info)](https://lore.kernel.org/patchwork/cover/1040426/)
@@ -58,9 +57,9 @@ CONFIG_HIBERNATION=y
 * 11-06-2020:
 	* Recompiled latest r5 kernel (4.19.122) from source and applied minmal patches.
 	* Improved WiFi support and random disconnects via alternate `rtl8723bs` driver.
-	* ~~Enabled hiberation mode _(should hopefully improve power conservation when sleeping)_~~
+	* Enabled hiberation mode _(should hopefully improve power conservation when sleeping)_
 	* Issues w/resuming from deep sleep _might_ be resolved! _(more testing required)_
-	* ~~Updated auto-installer script to create swap parition needed for hibernation.~~
+	* Updated auto-installer script to create swap parition needed for hibernation.
 	* Resquashed system.img -> system.sfs and extracting via auto-installer.
 	* Updated GRUB loader with prettier theme.
 * [11-03-2020](https://androidfilehost.com/?fid=10763459528675579498): 
