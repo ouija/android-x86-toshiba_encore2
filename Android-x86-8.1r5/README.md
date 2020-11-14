@@ -29,7 +29,7 @@ CONFIG_PWM_LPSS_PLATFORM=y
 CONFIG_HIBERNATION=y
 ```
 * Replaced default `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) and compiled from source as per [these instructions](https://groups.google.com/g/android-x86/c/iwSFhlLyW7A/m/kSxTf-rBAwAJ).
-* Added `acpi_backlight=vendor` boot args to GRUB (`android.cfg`) to resolve issues with s2idle mode _(fixes no display when resume from sleep)_.
+* Added `acpi_backlight=vendor` boot args to GRUB (`android.cfg`) to resolve black screen when resume from sleep.
 * Added `sdhci.debug_quirks=0x10000` boot arg to GRUB (`android.cfg`) to resolve SD card read-only issue.
 * Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes [fail to autoload](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) properly.
 * Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `init_hal_sensors` function to properly initalize accelerometers _(screen rotation and gyroscope)_.
