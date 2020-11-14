@@ -67,10 +67,9 @@ CONFIG_HIBERNATION=y
 	* Fixed 'audio pop' issue with touch events when using headphones
 	* Fixed levels for external headset microphone
 	* Improved `nano` terminal support
-* 11-01-2020:
-	* Improved scrolling of device
 * 10-31-2020:
 	* Fixed headphone switching on boot _(audio will automatically output to headphones if connected on startup)_ 
+	* Improved scrolling of device
 
 
 ## Known Bugs and Issues
