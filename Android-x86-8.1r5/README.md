@@ -80,7 +80,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 	git clone -b kernel-5.8 --single-branch --depth=1 https://github.com/maurossi/kernel-drivers .
 	```
 * Replace staging driver for `rtl8723bs` with [youling257 driver](https://github.com/youling257/rockchip_wlan):
-	* Clone the latest branch of youling257's driver somewhere on your machine via `git clone https://github.com/youling257/rockchip_wlan.git`
+	* Clone the latest branch of youling257's driver via `git clone https://github.com/youling257/rockchip_wlan.git`
 	* Move the `rtl8723bs` folder to `./kernel/driver/net/wireless/realtek/`
 	* Add references for this to the `./kernel/driver/net/wireless/realtek/Makefile` and `./kernel/driver/net/wireless/realtek/Kconfig` files:
 		* In **Kconfig** add `source "drivers/net/wireless/realtek/rtl8723bs/Kconfig"`
