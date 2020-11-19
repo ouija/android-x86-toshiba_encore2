@@ -2,47 +2,34 @@
 
 Android-x86_64 [v8.1r5] running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 
+Please consider [donating](https://paypal.me/djouija) to support this project. Thanks!
+
 ----------------------------------------------------------------------------------
 
 ## Installation Instructions
 
-* [Download latest pre-built image here](https://androidfilehost.com/?fid=10763459528675583620) &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=319636)
+* [Download latest pre-built image here](https://androidfilehost.com/?fid=10763459528675586329) &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=319636)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
-* Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios and select USB drive to boot from.
+* Ensure device is running the latest BIOS version!
+* Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios logo and choose `<Enter Setup>` then disable `Secure Boot` and select `Save and Exit`.
+* Press `F12` again and select the `USB` option to boot from USB device.
 * Select `Live` to test Android directly from USB, or choose `Auto-Install` to install Android-x86 to the internal storage (`mmcblk1`).
 * If installing, choose the internal storage device (`mmcblk1`) and click `Yes` and allow for installation to finish and then select `reboot`.
-* **Using `Auto Install` method is <ins>recommended</ins> to properly enable suspend-to-ram and create the required swap partition!**
 * Note you should login to a Google account and update all pre-installed applications to ensure proper functionality after fresh install.
 * Enjoy your WT8-B/WT10-A running Android-x86!
 
-
-## Build Instructions
-
-To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
-
-* Patched 4.19.122 kernel with [all patches](./00%20%20Kernel%204.19.122/Patches).
-* Edited [kernel config file](./00%20%20Kernel%204.19/android-x86_64_defconfig) (`./kernel/arch/x86/configs/android-x86_64_defconfig`) to enable backlight/brightness control and hibernation:
-```
-CONFIG_PWM_LPSS=y
-CONFIG_PWM_LPSS_PCI=y
-CONFIG_PWM_LPSS_PLATFORM=y
-CONFIG_HIBERNATION=y
-```
-* Replaced default `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) and compiled from source as per [these instructions](https://groups.google.com/g/android-x86/c/iwSFhlLyW7A/m/kSxTf-rBAwAJ).
-* Added `acpi_backlight=vendor` boot args to GRUB (`android.cfg`) to resolve black screen when resume from sleep.
-* Added `sdhci.debug_quirks=0x10000` boot arg to GRUB (`android.cfg`) to resolve SD card read-only issue.
-* Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes [fail to autoload](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) properly.
-* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `init_hal_sensors` function to properly initialize accelerometers _(screen rotation and gyroscope)_.
-* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `do_bootcomplete` function to run custom scripts _(enable headphone switching, suspend-to-ram, etc)_.
-* Enabled `navtivebridge` support by default and included `houdini` in the pre-built image, and fixed url link issue with `/system/bin/enable_nativebridge` script.
-* Updated `build.prop` with optimizations for better GPU and system performance.
-* Removed `taskbar`, `calibration` and `developer tools` apps from pre-built image.
-* Updates Android-x86 GRUB loader with prettier theme.
-* Added `ES File Explorer` to pre-built image.
-* Added `nano` to pre-built image.
-
-
 ## Recent Bugfixes and Improvements
+
+* [11-18-2020](https://androidfilehost.com/?fid=10763459528675586329):
+	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support.
+		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) and c-state bugs with LPM on this device; This build is recommended for optimal support and performance!
+		* This kernel also provides proper `PWM_LPSS` support _(no additional patches required to enable backlight support!)_
+		* Kernel 5.8 might provide [camera support](https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.8-Media-Updates) in the near future *(currently debugging and testing)*
+	* Recompiled youling257 `rtl8723bs` driver with k5.8 support.
+	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to no longer create additional swap parition.
+	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
+	* Improved `/etc/scripts/sleep.sh` script for improved s2idle support.
+	* Preliminary testing shows that device is more stable with improved battery life.
 
 * [11-13-2020](https://androidfilehost.com/?fid=10763459528675583620):
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
@@ -52,7 +39,6 @@ CONFIG_HIBERNATION=y
 	* Re-applied some kernel patches for improved device support:
 		* Applied `drm-i915-Disable-preemption-and-sleeping-while-using-the-punit-sideband` patch [(more info)](https://www.phoronix.com/forums/forum/software/mobile-linux/1096936-intel-baytrail-cherrytrail-systems-can-now-correctly-hibernate-again-under-linux#post1096999)
 		* Applied `1-2-extcon-intel-cht-wc-Make-charger-detection-co-existed-with-OTG-host-mode` and `2-2-extcon-intel-cht-wc-Enable-external-charger` [(more info)](https://lore.kernel.org/patchwork/cover/1040426/)
-	* Slapped my name all over this bitch! :)
 
 * 11-06-2020:
 	* Recompiled latest r5 kernel (4.19.122) from source and applied minimal patches.
@@ -62,6 +48,7 @@ CONFIG_HIBERNATION=y
 	* Updated auto-installer script to create swap partition needed for hibernation.
 	* Resquashed system.img -> system.sfs and extracting via auto-installer.
 	* Updated GRUB loader with prettier theme.
+
 * [11-03-2020](https://androidfilehost.com/?fid=10763459528675579498): 
 	* **Added support for Toshiba WT10-A**
 	* Fixed 'audio pop' issue with touch events when using headphones
@@ -71,18 +58,74 @@ CONFIG_HIBERNATION=y
 	* Improved scrolling of device
 
 
+## Kernel Build Instructions
+
+To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
+
+* Download latest repo for Android-x86 8.1r5:
+	`mkdir android-x86-8.1r5
+	cd android-x86-8.1r5
+	repo init --depth=1 -u http://scm.osdn.net/gitroot/android-x86/manifest -b oreo-x86 -m android-x86-8.1-r5.xml
+	repo sync -c -j4 --no-tags --no-clone-bundle'`
+* Use latest [5.8.0 kernel](https://github.com/maurossi/linux)
+	`rm -rf kernel; mkdir kernel; cd kernel
+	git clone -b kernel-5.8_si_next --single-branch --depth=1 https://github.com/maurossi/linux.git .`
+* No patches were necessary using this newer kernel *(wOOT!)* but feel free to apply any you like.
+* Replace `external/kernel-drivers` with 5.8 versions:
+	`rm -rf ../external/kernel-drivers; mkdir ../external/kernel-drivers; cd ../external/kernel-drivers
+	git clone -b kernel-5.8 --single-branch --depth=1 https://github.com/maurossi/kernel-drivers .`
+* Replace staging driver for `rtl8723bs` with [youling257 driver](https://github.com/youling257/rockchip_wlan):
+	* Clone the latest branch of youling257's driver somewhere on your machine via `git clone https://github.com/youling257/rockchip_wlan.git`
+	* Move the `rtl8723bs` folder to `./kernel/driver/net/wireless/realtek/`
+	* Add references for this to the `./kernel/driver/net/wireless/realtek/Makefile` and `./kernel/driver/net/wireless/realtek/Kconfig` files:
+		* In **Kconfig** add `source "drivers/net/wireless/realtek/rtl8723bs/Kconfig"`
+		* In **Makefile** add `obj-$(CONFIG_RTL8723BS) += rtl8723bs/`
+	* Modify `./kernel/driver/net/wireless/realtek/rtl8723bs/Makefile` to avoid issues with include paths during source compile:
+	* Delete/replace **line 24**:  `EXTRA_CFLAGS += -I$(src)/include`  with the following three new lines:
+	    `EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/include
+	    EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/hal/phydm
+	    EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/platform`
+	* *Modify the values above after `EXTRA_CFLAGS += -I/` with the full path to your Android-x86 source files!*
+	* Then replace **line 156** *(now line 158 after completing the above edit)* from this: 
+	    `export TopDIR ?= $(shell pwd)`
+	* To instead be:
+	    `export TopDIR ?= /android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/`
+	* *And again ensure to modify this line above with the full path to your Android-x86 source files!*
+	* Remove inclusion of the original driver by deleting the references to `rtl8723bs` from `Kconfig` and `Makefile` files in `kernel/driver/staging` folder
+	* And now you can build away:
+		`. build/envsetup.sh; lunch android_x86_64-userdebug
+		make kernel -j8`
+
+## Additional Build Details
+
+* Replaced staging `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) for improved wirless connectivity.
+* Added `acpi=force reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' acpi_osi='Linux'` boot args to GRUB -> `android.cfg` to improve ACPI support.
+* Added `acpi_backlight=vendor` boot args to GRUB (`android.cfg`) to resolve black screen when resume from sleep.
+* Added `intel_idle.max_cstate=1` boot args to GRUB (`android.cfg`) to improve deep sleep issues with IGFX and Baytrail/Cherrytrail c-state bug.
+* Added `sdhci.debug_quirks=0x10000` boot arg to GRUB (`android.cfg`) to resolve SD card read-only issue.
+* Added `nospectre_v2` to remove `Spectre v2 vulnerability` nag message from kernel output on boot
+* Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes [fail to autoload](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) properly.
+* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `init_hal_sensors` function to properly initialize accelerometers _(screen rotation and gyroscope)_.
+* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `do_bootcomplete` function to run custom scripts _(enable headphone switching, suspend-to-ram, audio pop fix, etc)_.
+* Enabled `navtivebridge` support by default and included `houdini` in the pre-built image, and fixed url link issue with `/system/bin/enable_nativebridge` script.
+* Updated `build.prop` with optimizations for better GPU and system performance.
+* Removed `taskbar`, `calibration` and `developer tools` apps from pre-built image.
+* Updates Android-x86 GRUB loader with prettier theme.
+* Added `ES File Explorer` to pre-built image.
+* Added `nano` to pre-built image.
+
+
 ## Known Bugs and Issues
 
-* Cameras not working _(no kernel support)_.
-* Internal microphone not working _(bug/kernel issue with bytcrrt5640)_.
+* Cameras do not work _(no kernel support)_
+	_Note k5.8 has ressurected the [atomisp driver](https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.8-Media-Updates) and camera support **may** be possible in the near future!_
+	_Have tested a build w/atomisp enabled but camera modules are failing to init, still debugging.
+* Internal microphone not working _(bug/kernel issue with bytcrrt5640, testing quirks to try and resolve)_.
 * Bluetooth is partially working but not reliably discovering or connecting to all devices.
 * Formatting SD card with Android isn't working _(cannot be used for internal app storage - format with PC for use as portable storage)_.
 * Add `AUTO_LOAD=old` boot arg to GRUB (`android.cfg`) if you experience issues with touchscreen and power button not working.
-* Note: Device/BIOS doesn't support S3 *(mem_sleep->deep)* and [resume from hibernation](https://www.kernel.org/doc/Documentation/power/interface.txt), but does support suspend-to-ram/s2idle.
-	* Using `Auto Install` method is <ins>recommended</ins> to properly enable suspend-to-ram and create the required swap partition!
-* There _may_ still some unresolved issues regarding wake from sleep, this may due to a known `CSTATE BUG` with Intel Baytrail/Cherrytrail devices:
-	* If still having issues resuming from suspend/sleep, you can try using `intel_idle.max_state=1`, `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`).
-	* Using `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script may also resolve sleep/resume issues.
+* Note: Device/BIOS doesn't support S3 power mode *[mem_sleep->deep / suspend-to-disk]* and [resume from hibernation](https://www.kernel.org/doc/Documentation/power/interface.txt), but does support suspend-to-ram/s2idle.
+* If having issues resuming from suspend/sleep, you can try using `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`), YMMV.	
 * For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk)
 
 

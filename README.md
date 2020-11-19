@@ -4,6 +4,8 @@
 
 Android-x86 running on a Toshiba Encore 2 [WT8-B/WT10-A] tablet.
 
+Please consider [donating](https://paypal.me/djouija) to support this project. Thanks!
+
 ----------------------------------------------------------------------------------
 
 ## Select a build:
