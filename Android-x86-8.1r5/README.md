@@ -68,12 +68,12 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 	repo init --depth=1 -u http://scm.osdn.net/gitroot/android-x86/manifest -b oreo-x86 -m android-x86-8.1-r5.xml
 	repo sync -c -j4 --no-tags --no-clone-bundle'```
 * Use latest [5.8.0 kernel](https://github.com/maurossi/linux)
-	`rm -rf kernel; mkdir kernel; cd kernel
-	git clone -b kernel-5.8_si_next --single-branch --depth=1 https://github.com/maurossi/linux.git .`
+	```rm -rf kernel; mkdir kernel; cd kernel
+	git clone -b kernel-5.8_si_next --single-branch --depth=1 https://github.com/maurossi/linux.git .```
 * No patches were necessary using this newer kernel *(wOOT!)* but feel free to apply any you like.
 * Replace `external/kernel-drivers` with 5.8 versions:
-	`rm -rf ../external/kernel-drivers; mkdir ../external/kernel-drivers; cd ../external/kernel-drivers
-	git clone -b kernel-5.8 --single-branch --depth=1 https://github.com/maurossi/kernel-drivers .`
+	```rm -rf ../external/kernel-drivers; mkdir ../external/kernel-drivers; cd ../external/kernel-drivers
+	git clone -b kernel-5.8 --single-branch --depth=1 https://github.com/maurossi/kernel-drivers .```
 * Replace staging driver for `rtl8723bs` with [youling257 driver](https://github.com/youling257/rockchip_wlan):
 	* Clone the latest branch of youling257's driver somewhere on your machine via `git clone https://github.com/youling257/rockchip_wlan.git`
 	* Move the `rtl8723bs` folder to `./kernel/driver/net/wireless/realtek/`
@@ -82,9 +82,9 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 		* In **Makefile** add `obj-$(CONFIG_RTL8723BS) += rtl8723bs/`
 	* Modify `./kernel/driver/net/wireless/realtek/rtl8723bs/Makefile` to avoid issues with include paths during source compile:
 	* Delete/replace **line 24**:  `EXTRA_CFLAGS += -I$(src)/include`  with the following three new lines:
-	    `EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/include
+	    ```EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/include
 	    EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/hal/phydm
-	    EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/platform`
+	    EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/platform```
 	* *Modify the values above after `EXTRA_CFLAGS += -I/` with the full path to your Android-x86 source files!*
 	* Then replace **line 156** *(now line 158 after completing the above edit)* from this: 
 	    `export TopDIR ?= $(shell pwd)`
@@ -93,8 +93,8 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 	* *And again ensure to modify this line above with the full path to your Android-x86 source files!*
 	* Remove inclusion of the original driver by deleting the references to `rtl8723bs` from `Kconfig` and `Makefile` files in `kernel/driver/staging` folder
 	* And now you can build away:
-		`. build/envsetup.sh; lunch android_x86_64-userdebug
-		make kernel -j8`
+		```. build/envsetup.sh; lunch android_x86_64-userdebug
+		make kernel -j8```
 
 ## Additional Build Details
 
