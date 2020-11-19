@@ -10,8 +10,8 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
 
-* Patched 4.19.122 kernel with [all patches](./00%20%20Kernel%204.19.122/Patches).
-* Edited [kernel config file](./00%20%20Kernel%204.19/android-x86_64_defconfig) (`./kernel/arch/x86/configs/android-x86_64_defconfig`) to enable backlight/brightness control and hibernation:
+* Patched 4.19.122 kernel with [all patches](./Patches).
+* Edited [kernel config file](./android-x86_64_defconfig) (`./kernel/arch/x86/configs/android-x86_64_defconfig`) to enable backlight/brightness control and hibernation:
 ```
 CONFIG_PWM_LPSS=y
 CONFIG_PWM_LPSS_PCI=y
