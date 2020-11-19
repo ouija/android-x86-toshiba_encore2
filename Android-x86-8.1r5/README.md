@@ -63,10 +63,10 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
 
 * Download latest repo for Android-x86 8.1r5:
-	`mkdir android-x86-8.1r5
+	```mkdir android-x86-8.1r5
 	cd android-x86-8.1r5
 	repo init --depth=1 -u http://scm.osdn.net/gitroot/android-x86/manifest -b oreo-x86 -m android-x86-8.1-r5.xml
-	repo sync -c -j4 --no-tags --no-clone-bundle'`
+	repo sync -c -j4 --no-tags --no-clone-bundle'```
 * Use latest [5.8.0 kernel](https://github.com/maurossi/linux)
 	`rm -rf kernel; mkdir kernel; cd kernel
 	git clone -b kernel-5.8_si_next --single-branch --depth=1 https://github.com/maurossi/linux.git .`
