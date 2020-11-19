@@ -26,9 +26,9 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 		* This kernel also provides proper `PWM_LPSS` support _(no additional patches required to enable backlight support!)_
 		* Kernel 5.8 might provide [camera support](https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.8-Media-Updates) in the near future *(currently debugging and testing)*
 	* Recompiled youling257 `rtl8723bs` driver with k5.8 support.
-	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to no longer create additional swap parition.
+	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to no longer create additional swap partition.
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
-	* Improved `/etc/scripts/sleep.sh` script for improved s2idle support.
+	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
 	* Preliminary testing shows that device is more stable with improved battery life.
 
 * [11-13-2020](https://androidfilehost.com/?fid=10763459528675583620):
