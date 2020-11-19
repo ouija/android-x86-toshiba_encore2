@@ -67,14 +67,18 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 	mkdir android-x86-8.1r5
 	cd android-x86-8.1r5
 	repo init --depth=1 -u http://scm.osdn.net/gitroot/android-x86/manifest -b oreo-x86 -m android-x86-8.1-r5.xml
-	repo sync -c -j4 --no-tags --no-clone-bundle'
+	repo sync -c -j4 --no-tags --no-clone-bundle
 	```
 * Use latest [5.8.0 kernel](https://github.com/maurossi/linux)
-	```rm -rf kernel; mkdir kernel; cd kernel
-	git clone -b kernel-5.8_si_next --single-branch --depth=1 https://github.com/maurossi/linux.git .```
+	```
+	rm -rf kernel; mkdir kernel; cd kernel
+	git clone -b kernel-5.8_si_next --single-branch --depth=1 https://github.com/maurossi/linux.git .
+	```
 * Replace `external/kernel-drivers` with 5.8 versions:
-	```rm -rf ../external/kernel-drivers; mkdir ../external/kernel-drivers; cd ../external/kernel-drivers
-	git clone -b kernel-5.8 --single-branch --depth=1 https://github.com/maurossi/kernel-drivers .```
+	```
+	rm -rf ../external/kernel-drivers; mkdir ../external/kernel-drivers; cd ../external/kernel-drivers
+	git clone -b kernel-5.8 --single-branch --depth=1 https://github.com/maurossi/kernel-drivers .
+	```
 * Replace staging driver for `rtl8723bs` with [youling257 driver](https://github.com/youling257/rockchip_wlan):
 	* Clone the latest branch of youling257's driver somewhere on your machine via `git clone https://github.com/youling257/rockchip_wlan.git`
 	* Move the `rtl8723bs` folder to `./kernel/driver/net/wireless/realtek/`
