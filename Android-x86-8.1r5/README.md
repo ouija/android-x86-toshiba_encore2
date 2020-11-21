@@ -8,7 +8,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Installation Instructions
 
-* [Download latest pre-built image here](https://androidfilehost.com/?fid=10763459528675586329) &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=319636)
+* [Download latest pre-built image here](https://androidfilehost.com/?fid=10763459528675588411) &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=319636)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Ensure device is running the latest BIOS version!
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios logo and choose `<Enter Setup>` then disable `Secure Boot` and select `Save and Exit`.
@@ -21,7 +21,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Recent Bugfixes and Improvements
 
-* [2020-11-18](https://androidfilehost.com/?fid=10763459528675586329):
+* [2020-11-18](https://androidfilehost.com/?fid=10763459528675588411):
 	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support.
 		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater.
 		* This kernel also provides proper `PWM_LPSS` support _(no patches needed to enable backlight)_
