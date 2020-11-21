@@ -24,7 +24,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 * [2020-11-18](https://androidfilehost.com/?fid=10763459528675586329):
 	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support.
 		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater.
-		* This kernel also provides proper `PWM_LPSS` support _(no additional patches required to enable backlight support!)_
+		* This kernel also provides proper `PWM_LPSS` support _(no patches needed to enable backlight)_
 	* Recompiled youling257 `rtl8723bs` driver with k5.8 support.
 	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to no longer create additional swap partition.
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
