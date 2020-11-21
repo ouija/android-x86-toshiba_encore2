@@ -24,13 +24,13 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 * [2020-11-18](https://androidfilehost.com/?fid=10763459528675588411):
 	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support.
 		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater.
+		* [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) is working properly! _(improved battery life)_
 		* This kernel also provides proper `PWM_LPSS` support _(no patches needed to enable backlight)_
 	* Recompiled youling257 `rtl8723bs` driver with k5.8 support.
 	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to *not* create swap partition.
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
 	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
 	* Fixed terminal and `nano` dipslay to fill screen when running as superuser *(added terminal line settings)*
-	* **Note**: Recently identified that [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) not working properly, currently debugging and new build hopefully coming soon!
 
 * [2020-11-13](https://androidfilehost.com/?fid=10763459528675583620):
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
