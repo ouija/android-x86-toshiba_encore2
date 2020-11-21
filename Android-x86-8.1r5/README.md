@@ -18,7 +18,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 * Note you should login to a Google account and update all pre-installed applications to ensure proper functionality after fresh install.
 * Enjoy your WT8-B/WT10-A running Android-x86!
 
-<br>
+
 ## Recent Bugfixes and Improvements
 
 * [2020-11-18](https://androidfilehost.com/?fid=10763459528675586329):
@@ -55,7 +55,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Improved `nano` terminal support
 	* Improved scrolling of device
 
-<br>
+
 ## Kernel Build Instructions
 
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
@@ -103,7 +103,6 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 		make kernel -j8
 		```
 
-<br>
 ## Additional Build Details
 
 * Replaced staging `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) for improved wirless connectivity.
@@ -122,7 +121,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * Added `ES File Explorer` to pre-built image.
 * Added `nano` to pre-built image.
 
-<br>
+
 ## Known Bugs and Issues
 
 * Cameras do not work _(no kernel support)_
@@ -136,7 +135,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * If having issues resuming from suspend/sleep, you can try using `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`), YMMV.	
 * For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk)
 
-<br>
+
 ## Notes
 
 * Special thanks to [@cwhuang](https://github.com/cwhuang) and [@youling257](https://github.com/youling257) for their support.
