@@ -18,20 +18,20 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 * Note you should login to a Google account and update all pre-installed applications to ensure proper functionality after fresh install.
 * Enjoy your WT8-B/WT10-A running Android-x86!
 
+<br>
 ## Recent Bugfixes and Improvements
 
-* [11-18-2020](https://androidfilehost.com/?fid=10763459528675586329):
+* [2020-11-18](https://androidfilehost.com/?fid=10763459528675586329):
 	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support.
-		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) and c-state bugs with LPM on this device; This build is recommended for optimal support and performance!
+		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater -- This build is recommended for optimal support and performance!
 		* This kernel also provides proper `PWM_LPSS` support _(no additional patches required to enable backlight support!)_
-		* Kernel 5.8 might provide [camera support](https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.8-Media-Updates) in the near future *(currently debugging and testing)*
 	* Recompiled youling257 `rtl8723bs` driver with k5.8 support.
 	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to no longer create additional swap partition.
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
 	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
 	* Preliminary testing shows that device is more stable with improved battery life.
 
-* [11-13-2020](https://androidfilehost.com/?fid=10763459528675583620):
+* [2020-11-13](https://androidfilehost.com/?fid=10763459528675583620):
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
 		* Added `/etc/scripts/sleep.sh` script to trigger suspend-to-ram (s2idle) after 1min of sleeping w/o network activity.
 	* Improved boot time by removing `AUTOLOAD=old` boot arg and using [newer autoloading](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) method
@@ -40,24 +40,22 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 		* Applied `drm-i915-Disable-preemption-and-sleeping-while-using-the-punit-sideband` patch [(more info)](https://www.phoronix.com/forums/forum/software/mobile-linux/1096936-intel-baytrail-cherrytrail-systems-can-now-correctly-hibernate-again-under-linux#post1096999)
 		* Applied `1-2-extcon-intel-cht-wc-Make-charger-detection-co-existed-with-OTG-host-mode` and `2-2-extcon-intel-cht-wc-Enable-external-charger` [(more info)](https://lore.kernel.org/patchwork/cover/1040426/)
 
-* 11-06-2020:
+* 2020-11-06:
 	* Recompiled latest r5 kernel (4.19.122) from source and applied minimal patches.
 	* Improved Wi-Fi support and random disconnects via alternate `rtl8723bs` driver.
-	* Enabled hibernation mode _(should hopefully improve power conservation when sleeping)_
-	* Issues w/resuming from deep sleep _might_ be resolved! _(more testing required)_
 	* Updated auto-installer script to create swap partition needed for hibernation.
 	* Resquashed system.img -> system.sfs and extracting via auto-installer.
 	* Updated GRUB loader with prettier theme.
 
-* [11-03-2020](https://androidfilehost.com/?fid=10763459528675579498): 
+* [2020-11-03](https://androidfilehost.com/?fid=10763459528675579498): 
 	* **Added support for Toshiba WT10-A**
-	* Fixed 'audio pop' issue with touch events when using headphones
+	* Fixed "audio pop" issue with touch events when using headphones via `/etc/scripts/pop-fix.sh` script
+	* Fixed headphone switching on boot _(audio will automatically output to headphones if connected on startup)_ 
 	* Fixed levels for external headset microphone
 	* Improved `nano` terminal support
-	* Fixed headphone switching on boot _(audio will automatically output to headphones if connected on startup)_ 
 	* Improved scrolling of device
 
-
+<br>
 ## Kernel Build Instructions
 
 To build from source, follow the instructions at [Android-x86.org](https://www.android-x86.org/source.html)
@@ -105,6 +103,7 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 		make kernel -j8
 		```
 
+<br>
 ## Additional Build Details
 
 * Replaced staging `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) for improved wirless connectivity.
@@ -123,21 +122,21 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 * Added `ES File Explorer` to pre-built image.
 * Added `nano` to pre-built image.
 
-
+<br>
 ## Known Bugs and Issues
 
 * Cameras do not work _(no kernel support)_
 	_Note k5.8 has ressurected the [atomisp driver](https://www.phoronix.com/scan.php?page=news_item&px=Linux-5.8-Media-Updates) and camera support **may** be possible in the near future!_
-	_Have tested a build w/atomisp enabled but camera modules are failing to init, still debugging.
+	_Tested a build w/atomisp enabled but camera sensors are failing to power up, still debugging)_
 * Internal microphone not working _(bug/kernel issue with bytcrrt5640, testing quirks to try and resolve)_.
 * Bluetooth is partially working but not reliably discovering or connecting to all devices.
 * Formatting SD card with Android isn't working _(cannot be used for internal app storage - format with PC for use as portable storage)_.
 * Add `AUTO_LOAD=old` boot arg to GRUB (`android.cfg`) if you experience issues with touchscreen and power button not working.
-* Note: Device/BIOS doesn't support S3 power mode *[mem_sleep->deep / suspend-to-disk]* and [resume from hibernation](https://www.kernel.org/doc/Documentation/power/interface.txt), but does support suspend-to-ram/s2idle.
+* Baytrail/Cherrytrail devices suffer from a c-state bug with linux, which can cause issues with freezing or resuming from standby, but this latest build is fairly stable.
 * If having issues resuming from suspend/sleep, you can try using `intel_idle.max_cstate=1` and `i915.enable_execlists=0` boot args in GRUB (`android.cfg`), YMMV.	
 * For Netflix support, use version [4.16 build 15172](https://netflixhelp.s3.amazonaws.com/netflix-4.16-15172-release.apk)
 
-
+<br>
 ## Notes
 
 * Special thanks to [@cwhuang](https://github.com/cwhuang) and [@youling257](https://github.com/youling257) for their support.
