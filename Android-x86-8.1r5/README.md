@@ -26,7 +26,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater.
 		* This kernel also provides proper `PWM_LPSS` support _(no patches needed to enable backlight)_
 	* Recompiled youling257 `rtl8723bs` driver with k5.8 support.
-	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to no longer create additional swap partition.
+	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to *not* create swap partition.
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
 	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
 	* Preliminary testing shows that device is more stable with improved battery life.
