@@ -30,7 +30,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
 	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
 	* Preliminary testing shows that device is more stable with improved battery life.
-	* UPDATE: *s0ix* not working properly, debugging and new build hopefully coming soon!
+	* **Note**: Just noticced that *s0ix* not working properly, currently debugging and new build hopefully coming soon!
 
 * [2020-11-13](https://androidfilehost.com/?fid=10763459528675583620):
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
