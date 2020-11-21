@@ -30,7 +30,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
 	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
 	* Fixed terminal and `nano` dipslay to fill screen when running as superuser *(added terminal line settings)*
-	* **Note**: Recently identified that *s0ix* not working properly, currently debugging and new build hopefully coming soon!
+	* **Note**: Recently identified that [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) not working properly, currently debugging and new build hopefully coming soon!
 
 * [2020-11-13](https://androidfilehost.com/?fid=10763459528675583620):
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
