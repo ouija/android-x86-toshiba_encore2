@@ -29,8 +29,8 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to *not* create swap partition.
 	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
 	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
-	* Preliminary testing shows that device is more stable with improved battery life.
-	* **Note**: Just noticed *s0ix* not working properly, currently debugging and new build hopefully coming soon!
+	* Fixed terminal and `nano` dipslay to fill screen when running as superuser *(added terminal line settings)*
+	* **Note**: Recently identified that *s0ix* not working properly, currently debugging and new build hopefully coming soon!
 
 * [2020-11-13](https://androidfilehost.com/?fid=10763459528675583620):
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
