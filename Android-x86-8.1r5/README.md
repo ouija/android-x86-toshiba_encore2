@@ -29,7 +29,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Recompiled youling257 `rtl8723bs` driver with k5.8 support
 	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to *not* create swap partition.
 	* Added `setprop power.nonboot-cpu-off 0` and `setprop sleep.state force` via `/etc/init.sh` script _(enables sleep and s0ix support)_
-	* Removed `/etc/scripts/sleep.sh` script _(unnecessary now that libsuspend is setting s2idle properly with `sleep.state=force` property)_	
+	* Removed `/etc/scripts/sleep.sh` script _(unnecessary now that libsuspend is setting s2idle properly with `sleep.state=force` [property](http://git.osdn.net/view?p=android-x86/system-core.git;a=commit;h=322112009d7098207802eb966081c6e0cd88e34b))_	
 	* Fixed terminal and `nano` dipslay to fill screen when running as superuser *(added terminal line settings)*
 	* Looking to improve support for `bytcrrt5640` in next release _(still using `/etc/scripts/audio.sh` to achieve this for now)_
 	* Removed unnecessary kernel boot arguments
