@@ -8,7 +8,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Installation Instructions
 
-* [Download latest pre-built image here](https://androidfilehost.com/?fid=10763459528675588411) &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=319636)
+* [Download latest pre-built image here](https://androidfilehost.com/?fid=10763459528675589621) &nbsp; | &nbsp; [View all builds](https://www.androidfilehost.com/?w=files&flid=319636)
 * Use [Rufus](https://rufus.ie/) to create USB drive installer.
 * Ensure device is running the latest BIOS version!
 * Use OTG adapter to connect USB drive and keyboard to device and press `F12` at bios logo and choose `<Enter Setup>` then disable `Secure Boot` and select `Save and Exit`.
@@ -21,34 +21,36 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Recent Bugfixes and Improvements
 
-* [2020-11-18](https://androidfilehost.com/?fid=10763459528675588411):
-	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support.
-		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater.
-		* [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) is working properly! _(improved battery life)_
+* 2020-11-23 Release:
+	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support
+		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater
+		* [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) is working properly! _(improves power drain during sleep)_
 		* This kernel also provides proper `PWM_LPSS` support _(no patches needed to enable backlight)_
-	* Recompiled youling257 `rtl8723bs` driver with k5.8 support.
+	* Recompiled youling257 `rtl8723bs` driver with k5.8 support
 	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to *not* create swap partition.
-	* Re-added `setprop power.nonboot-cpu-off 0` via `/etc/init.sh` script to help improve resume/suspend issues.
-	* Improved `/etc/scripts/sleep.sh` script for better s2idle support.
+	* Added `setprop power.nonboot-cpu-off 0` and `setprop sleep.state force` via `/etc/init.sh` script _(enables sleep and s0ix support)_
+	* Removed `/etc/scripts/sleep.sh` script _(unnecessary now that libsuspend is setting s2idle properly with `sleep.state=force` property)_	
 	* Fixed terminal and `nano` dipslay to fill screen when running as superuser *(added terminal line settings)*
+	* Looking to improve support for `bytcrrt5640` in next release _(still using `/etc/scripts/audio.sh` to achieve this for now)_
+	* Removed unnecessary kernel boot arguments
 
-* [2020-11-13](https://androidfilehost.com/?fid=10763459528675583620):
+* 2020-11-13 Release:
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
-		* Added `/etc/scripts/sleep.sh` script to trigger suspend-to-ram (s2idle) after 1min of sleeping w/o network activity.
+		* Added `/etc/scripts/sleep.sh` script to trigger suspend-to-ram (s2idle) after 1min of sleeping w/o network activity
 	* Improved boot time by removing `AUTOLOAD=old` boot arg and using [newer autoloading](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) method
-		* Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes failed to autoload properly.
+		* Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes failed to autoload properly
 	* Re-applied some kernel patches for improved device support:
 		* Applied `drm-i915-Disable-preemption-and-sleeping-while-using-the-punit-sideband` patch [(more info)](https://www.phoronix.com/forums/forum/software/mobile-linux/1096936-intel-baytrail-cherrytrail-systems-can-now-correctly-hibernate-again-under-linux#post1096999)
 		* Applied `1-2-extcon-intel-cht-wc-Make-charger-detection-co-existed-with-OTG-host-mode` and `2-2-extcon-intel-cht-wc-Enable-external-charger` [(more info)](https://lore.kernel.org/patchwork/cover/1040426/)
 
-* 2020-11-06:
-	* Recompiled latest r5 kernel (4.19.122) from source and applied minimal patches.
-	* Improved Wi-Fi support and random disconnects via alternate `rtl8723bs` driver.
-	* Updated auto-installer script to create swap partition needed for hibernation.
-	* Resquashed system.img -> system.sfs and extracting via auto-installer.
-	* Updated GRUB loader with prettier theme.
+* 2020-11-06 Release:
+	* Recompiled latest r5 kernel (4.19.122) from source and applied minimal patches
+	* Improved Wi-Fi support and random disconnects via alternate `rtl8723bs` driver
+	* Updated auto-installer script to create swap partition needed for hibernation
+	* Resquashed system.img -> system.sfs and extracting via auto-installer
+	* Updated GRUB loader with prettier theme
 
-* [2020-11-03](https://androidfilehost.com/?fid=10763459528675579498): 
+* 2020-11-03 Release:
 	* **Added support for Toshiba WT10-A**
 	* Fixed "audio pop" issue with touch events when using headphones via `/etc/scripts/pop-fix.sh` script
 	* Fixed headphone switching on boot _(audio will automatically output to headphones if connected on startup)_ 
@@ -107,14 +109,12 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 ## Additional Build Details
 
 * Replaced staging `rtl8723bs` driver with [youling257's version](https://github.com/youling257/rockchip_wlan) for improved wirless connectivity.
-* Added `acpi=force reboot=acpi acpi_osi='!Windows 2013' acpi_osi='!Windows 2012' acpi_osi='Linux'` boot args to GRUB -> `android.cfg` to improve ACPI support.
 * Added `acpi_backlight=vendor` boot args to GRUB (`android.cfg`) to resolve black screen when resume from sleep.
-* Added `intel_idle.max_cstate=1` boot args to GRUB (`android.cfg`) to improve deep sleep issues with IGFX and Baytrail/Cherrytrail c-state bug.
 * Added `sdhci.debug_quirks=0x10000` boot arg to GRUB (`android.cfg`) to resolve SD card read-only issue.
 * Added `nospectre_v2` to remove `Spectre v2 vulnerability` nag message from kernel output on boot
 * Updated `0-auto-detect` script in `initrd.img` to modprobe `gpio_keys` and `hid_multitouch` which sometimes [fail to autoload](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) properly.
-* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `init_hal_sensors` function to properly initialize accelerometers _(screen rotation and gyroscope)_.
-* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `do_bootcomplete` function to run custom scripts _(enable headphone switching, suspend-to-ram, audio pop fix, etc)_.
+* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `init_hal_sensors` function to enable sleep and configure sensors _(screen rotation and gyroscope)_.
+* Updated `/system/etc/init.sh` startup script and added `WT8-B/WT10-A` to `do_bootcomplete` function to run custom scripts _(headphone switching / audio pop fix)_.
 * Enabled `navtivebridge` support by default and included `houdini` in the pre-built image, and fixed url link issue with `/system/bin/enable_nativebridge` script.
 * Updated `build.prop` with optimizations for better GPU and system performance.
 * Removed `taskbar`, `calibration` and `developer tools` apps from pre-built image.
