@@ -140,5 +140,6 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 ## Notes
 
 * Special thanks to [@cwhuang](https://github.com/cwhuang) and [@youling257](https://github.com/youling257) for their support.
+* Thanks to *@guimenez* for testing WT10-A support.
 * Honourable mention to *Mr. James P. Kelly*, who gave me this tablet he obtained on a five-finger discount after a delayed flight. &nbsp; _#RIP_
 * See [this topic](https://groups.google.com/forum/#!topic/android-x86/qyCvK176UXA) on the [Android-x86 Google Group](https://groups.google.com/forum/#!forum/android-x86) for more information and further assistance if necessary.
