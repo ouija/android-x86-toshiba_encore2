@@ -21,10 +21,10 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 
 ## Recent Bugfixes and Improvements
 
-* 2020-11-23 Release:
+* **2020-11-23:**
 	* **Updated to Kernel 5.8.0** for better Baytrail/Cherrytrail device support
 		* This improves [s2idle issues](https://lkml.org/lkml/2020/3/29/372) introduced in kernel 5.2 or greater
-		* [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) is working properly! _(improves power drain during sleep)_
+		* [s0ix](https://01.org/blogs/qwang59/2018/how-achieve-s0ix-states-linux) is [working properly](https://groups.google.com/g/android-x86/c/UJUk0rDbxds/m/ui72kiQnBQAJ)! _(improves power drain during sleep)_
 		* This kernel also provides proper `PWM_LPSS` support _(no patches needed to enable backlight)_
 	* Recompiled youling257 `rtl8723bs` driver with k5.8 support
 	* Removed hibernation support from kernel *(unsupported by device)* and updated Auto-Installer to *not* create swap partition.
@@ -34,7 +34,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 	* Looking to improve support for `bytcrrt5640` in next release _(still using `/etc/scripts/audio.sh` to achieve this for now)_
 	* Removed unnecessary kernel boot arguments
 
-* 2020-11-13 Release:
+* **2020-11-13:**
 	* Improved power consumption / standby mode by enabling proper *suspend-to-ram* functionality!
 		* Added `/etc/scripts/sleep.sh` script to trigger suspend-to-ram (s2idle) after 1min of sleeping w/o network activity
 	* Improved boot time by removing `AUTOLOAD=old` boot arg and using [newer autoloading](https://groups.google.com/g/android-x86/c/5WG0tfojGhU) method
@@ -43,14 +43,14 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 		* Applied `drm-i915-Disable-preemption-and-sleeping-while-using-the-punit-sideband` patch [(more info)](https://www.phoronix.com/forums/forum/software/mobile-linux/1096936-intel-baytrail-cherrytrail-systems-can-now-correctly-hibernate-again-under-linux#post1096999)
 		* Applied `1-2-extcon-intel-cht-wc-Make-charger-detection-co-existed-with-OTG-host-mode` and `2-2-extcon-intel-cht-wc-Enable-external-charger` [(more info)](https://lore.kernel.org/patchwork/cover/1040426/)
 
-* 2020-11-06 Release:
+* **2020-11-06 Release**
 	* Recompiled latest r5 kernel (4.19.122) from source and applied minimal patches
 	* Improved Wi-Fi support and random disconnects via alternate `rtl8723bs` driver
 	* Updated auto-installer script to create swap partition needed for hibernation
 	* Resquashed system.img -> system.sfs and extracting via auto-installer
 	* Updated GRUB loader with prettier theme
 
-* 2020-11-03 Release:
+* **2020-11-03:**
 	* **Added support for Toshiba WT10-A**
 	* Fixed "audio pop" issue with touch events when using headphones via `/etc/scripts/pop-fix.sh` script
 	* Fixed headphone switching on boot _(audio will automatically output to headphones if connected on startup)_ 
