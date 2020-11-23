@@ -43,7 +43,7 @@ Please consider [donating](https://paypal.me/djouija) to support this project. T
 		* Applied `drm-i915-Disable-preemption-and-sleeping-while-using-the-punit-sideband` patch [(more info)](https://www.phoronix.com/forums/forum/software/mobile-linux/1096936-intel-baytrail-cherrytrail-systems-can-now-correctly-hibernate-again-under-linux#post1096999)
 		* Applied `1-2-extcon-intel-cht-wc-Make-charger-detection-co-existed-with-OTG-host-mode` and `2-2-extcon-intel-cht-wc-Enable-external-charger` [(more info)](https://lore.kernel.org/patchwork/cover/1040426/)
 
-* **2020-11-06 Release**
+* **2020-11-06:**
 	* Recompiled latest r5 kernel (4.19.122) from source and applied minimal patches
 	* Improved Wi-Fi support and random disconnects via alternate `rtl8723bs` driver
 	* Updated auto-installer script to create swap partition needed for hibernation
