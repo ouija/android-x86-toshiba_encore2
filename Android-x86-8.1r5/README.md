@@ -82,11 +82,11 @@ To build from source, follow the instructions at [Android-x86.org](https://www.a
 	```
 * Replace staging driver for `rtl8723bs` with [youling257 driver](https://github.com/youling257/rockchip_wlan):
 	* Clone the latest branch of youling257's driver via `git clone https://github.com/youling257/rockchip_wlan.git`
-	* Move the `rtl8723bs` folder to `./kernel/driver/net/wireless/realtek/`
-	* Add references for this to the `./kernel/driver/net/wireless/realtek/Makefile` and `./kernel/driver/net/wireless/realtek/Kconfig` files:
+	* Move the `rtl8723bs` folder to `./kernel/drivers/net/wireless/realtek/`
+	* Add references for this to the `./kernel/drivers/net/wireless/realtek/Makefile` and `./kernel/drivers/net/wireless/realtek/Kconfig` files:
 		* In **Kconfig** add `source "drivers/net/wireless/realtek/rtl8723bs/Kconfig"`
 		* In **Makefile** add `obj-$(CONFIG_RTL8723BS) += rtl8723bs/`
-	* Modify `./kernel/driver/net/wireless/realtek/rtl8723bs/Makefile` to avoid issues with include paths during source compile:
+	* Modify `./kernel/drivers/net/wireless/realtek/rtl8723bs/Makefile` to avoid issues with include paths during source compile:
 	* Delete/replace **line 24**:  `EXTRA_CFLAGS += -I$(src)/include`  with the following three new lines:
 	    ```
 	    EXTRA_CFLAGS += -I/android-x86/kernel/drivers/net/wireless/realtek/rtl8723bs/include
