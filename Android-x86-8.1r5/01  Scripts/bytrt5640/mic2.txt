@@ -1,0 +1,21 @@
+
+		alsa_amixer cset name='Internal Mic Switch' on
+
+		# default for IN3 Boost seems to too low
+		alsa_amixer cset name='IN3 Boost' 8
+
+		alsa_amixer cset name='RECMIXL BST1 Switch' off
+		alsa_amixer cset name='RECMIXR BST1 Switch' off
+		alsa_amixer cset name='RECMIXL BST3 Switch' on
+		alsa_amixer cset name='RECMIXR BST3 Switch' on
+
+		alsa_amixer cset name='Stereo ADC1 Mux' ADC
+		alsa_amixer cset name='Stereo ADC MIXL ADC1 Switch' on
+		alsa_amixer cset name='Stereo ADC MIXR ADC1 Switch' on
+
+		alsa_amixer cset name='Mono ADC L1 Mux' 1
+		alsa_amixer cset name='Mono ADC R1 Mux' 1
+		alsa_amixer cset name='Mono ADC MIXL ADC1 Switch' on
+		alsa_amixer cset name='Mono ADC MIXR ADC1 Switch' on
+
+		alsa_amixer cset name='Mono ADC Capture Switch' on
