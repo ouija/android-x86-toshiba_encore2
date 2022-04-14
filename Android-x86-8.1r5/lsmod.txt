@@ -1,0 +1,90 @@
+Module                  Size  Used by
+tcp_diag               16384  0 
+inet_diag              24576  1 tcp_diag
+binfmt_misc            20480  1 
+intel_soc_dts_thermal    16384  0 
+coretemp               16384  0 
+hwmon                  28672  1 coretemp
+intel_powerclamp       16384  0 
+crc32c_intel           24576  0 
+crc32_pclmul           16384  0 
+ghash_clmulni_intel    16384  0 
+i915                 2195456  10 
+drm_kms_helper        212992  1 i915
+drm                   520192  12 i915,drm_kms_helper
+fb_sys_fops            16384  1 drm_kms_helper
+syscopyarea            16384  1 drm_kms_helper
+sysfillrect            16384  1 drm_kms_helper
+sysimgblt              16384  1 drm_kms_helper
+i2c_algo_bit           16384  1 i915
+mei_txe                20480  0 
+mei                   102400  1 mei_txe
+iTCO_wdt               16384  0 
+iTCO_vendor_support    16384  1 iTCO_wdt
+lpc_ich                24576  0 
+ak8975                 20480  0 
+inv_mpu6050_i2c        20480  0 
+inv_mpu6050            32768  4 inv_mpu6050_i2c
+industrialio_triggered_buffer    16384  2 ak8975,inv_mpu6050
+kfifo_buf              16384  1 industrialio_triggered_buffer
+i2c_mux                16384  1 inv_mpu6050_i2c
+pcspkr                 16384  0 
+int3400_thermal        16384  0 
+acpi_thermal_rel       16384  1 int3400_thermal
+int3406_thermal        16384  0 
+efi_pstore             16384  0 
+efivars                20480  1 efi_pstore
+soc_button_array       16384  0 
+intel_rapl_msr         16384  0 
+processor_thermal_device    20480  0 
+intel_rapl_common      20480  2 intel_rapl_msr,processor_thermal_device
+intel_soc_dts_iosf     16384  2 intel_soc_dts_thermal,processor_thermal_device
+snd_soc_rt5670        159744  0 
+snd_soc_rt5651        102400  0 
+snd_soc_rt5645        167936  0 
+dw_dmac                16384  0 
+dw_dmac_core           24576  1 dw_dmac
+joydev                 20480  0 
+i2c_hid                28672  0 
+toshiba_acpi           45056  0 
+industrialio           73728  7 ak8975,inv_mpu6050,industrialio_triggered_buffer,kfifo_buf,toshiba_acpi
+8723bs               1724416  0 
+cfg80211              802816  1 8723bs
+int3403_thermal        16384  0 
+int340x_thermal_zone    16384  2 processor_thermal_device,int3403_thermal
+hci_uart              139264  0 
+btqca                  16384  1 hci_uart
+btrtl                  20480  1 hci_uart
+btbcm                  16384  1 hci_uart
+btintel                24576  1 hci_uart
+bluetooth             589824  6 hci_uart,btqca,btrtl,btbcm,btintel
+ecdh_generic           16384  1 bluetooth
+ecc                    32768  1 ecdh_generic
+8250_dw                16384  0 
+pwm_lpss_platform      16384  0 
+pwm_lpss               16384  2 pwm_lpss_platform
+snd_soc_sst_bytcr_rt5640    36864  0 
+snd_soc_rt5640        143360  2 snd_soc_sst_bytcr_rt5640
+snd_soc_rl6231         16384  4 snd_soc_rt5670,snd_soc_rt5651,snd_soc_rt5645,snd_soc_rt5640
+snd_intel_sst_acpi     16384  1 
+snd_intel_sst_core     53248  1 snd_intel_sst_acpi
+snd_soc_sst_atom_hifi2_platform   106496  2 snd_intel_sst_core
+snd_soc_acpi_intel_match    45056  1 snd_intel_sst_acpi
+snd_soc_acpi           16384  3 snd_soc_sst_bytcr_rt5640,snd_intel_sst_acpi,snd_soc_acpi_intel_match
+snd_soc_core          270336  6 snd_soc_rt5670,snd_soc_rt5651,snd_soc_rt5645,snd_soc_sst_bytcr_rt5640,snd_soc_rt5640,snd_soc_sst_atom_hifi2_platform
+snd_compress           24576  1 snd_soc_core
+ac97_bus               16384  1 snd_soc_core
+snd_pcm_dmaengine      16384  1 snd_soc_core
+snd_pcm               110592  9 snd_soc_rt5670,snd_soc_rt5651,snd_soc_rt5645,snd_soc_sst_bytcr_rt5640,snd_soc_rt5640,snd_soc_sst_atom_hifi2_platform,snd_soc_core,snd_compress,snd_pcm_dmaengine
+snd_timer              36864  1 snd_pcm
+snd                    86016  6 snd_soc_sst_bytcr_rt5640,snd_soc_sst_atom_hifi2_platform,snd_soc_core,snd_compress,snd_pcm,snd_timer
+soundcore              16384  1 snd
+intel_int0002_vgpio    16384  1 
+mac_hid                16384  0 
+wmi_bmof               16384  0 
+toshiba_wmi            16384  0 
+sparse_keymap          16384  2 toshiba_acpi,toshiba_wmi
+sdcardfs               61440  371 
+wmi                    24576  3 toshiba_acpi,wmi_bmof,toshiba_wmi
+hid_multitouch         28672  0 
+gpio_keys              20480  0 
